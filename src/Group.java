@@ -39,18 +39,6 @@ public class Group {
         return states;
     }
 
-    public ArrayList<String> addToList() {
-        return states;
-    }
-
-    public ArrayList<String> addToMessagesList() {
-        return states;
-    }
-
-    public ArrayList<String> addToStates() {
-        return states;
-    }
-
     public void ban(ClientHandler banned) {
         banList.add(banned);
     }
