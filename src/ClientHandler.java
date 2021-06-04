@@ -238,8 +238,10 @@ class ClientHandler implements Runnable {
                             Server.grList.add(newGr);
                             newGr.addMember(this);
                             inGroups.add(newGr.getGrName());
-                            encryptAndSend("Your new group: " + newGr.getGrName() + ", has been created.");
-                            newGr.updateStates("Group " + newGr.getGrName() + " has been created. By " + this.getName());
+                            encryptAndSend("Your new group: " + newGr.getGrName()
+                                    + ", has been created.");
+                            newGr.updateStates("Group " + newGr.getGrName()
+                                    + " has been created. By " + this.getName());
                         }
                         break;
                     //Join that group
@@ -252,14 +254,16 @@ class ClientHandler implements Runnable {
                             if (group.getGrName().equals((message_Obj.getContent()))) {
                                 checkGroup = true;
                                 if(group.checkBannedList(this)) {
-                                    encryptAndSend("You have been banned from group " + group.getGrName()
+                                    encryptAndSend("You have been banned from group "
+                                            + group.getGrName()
                                     + ". Please contact the group's administrator for more detail!");
                                 }
                                 else {
                                     group.addMember(this);
                                     inGroups.add(group.getGrName());
                                     encryptAndSend("You have joined group " + group.getGrName());
-                                    group.updateStates(this.getName() + " has joined group " + group.getGrName());
+                                    group.updateStates(this.getName() + " has joined group "
+                                            + group.getGrName());
                                 }
                                 break;
                             }
@@ -285,10 +289,12 @@ class ClientHandler implements Runnable {
                         }
                         else {
                             if(!checkInGroups(message_Obj.getReceiver())) {
-                                encryptAndSend("Group " + message_Obj.getReceiver() + " does not exist");
+                                encryptAndSend("Group " + message_Obj.getReceiver()
+                                        + " does not exist");
                             }
                             else{
-                                encryptAndSend("You don't have enough permission on group " + message_Obj.getReceiver());
+                                encryptAndSend("You don't have enough permission on group "
+                                        + message_Obj.getReceiver());
                             }
                         }
                         break;
@@ -522,7 +528,8 @@ class ClientHandler implements Runnable {
                                         }
                                     }
                                     else {
-                                        encryptAndSend("You don't have enough permission on group " + group.getGrName());
+                                        encryptAndSend("You don't have enough permission on group "
+                                                + group.getGrName());
                                     }
                                     break;
                                 }
@@ -530,10 +537,12 @@ class ClientHandler implements Runnable {
                         }
                         else {
                             if(!checkInGroups(message_Obj.getContent())) {
-                                encryptAndSend("Group " + message_Obj.getContent() + " does not exist");
+                                encryptAndSend("Group " + message_Obj.getContent()
+                                        + " does not exist");
                             }
                             else{
-                                encryptAndSend("You don't have enough permission on group " + message_Obj.getContent());
+                                encryptAndSend("You don't have enough permission on group "
+                                        + message_Obj.getContent());
                             }
                         }
                         break;

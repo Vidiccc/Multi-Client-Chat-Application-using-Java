@@ -98,6 +98,7 @@ public class Client {
         String myName = decrypt(dis.readUTF());
 
         name = myName.substring(14);
+        System.out.println(welcome);
         System.out.println(myName);
 
         // sendMessage thread
@@ -105,7 +106,8 @@ public class Client {
             @Override
             public void run() {
                 while (true) {
-
+//                    gui.getMsg();
+//                    System.out.println(gui.getMsg());
                     // read the message to deliver.
                     String input = scn.nextLine();
 
@@ -117,6 +119,7 @@ public class Client {
                     //Encryption
                     String msg_encrypted = encrypt(msg_JSON);
                     //System.out.println(msg_encrypted);
+
 
                     try {
                         // write on the output stream
